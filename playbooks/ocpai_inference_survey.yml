@@ -19,7 +19,9 @@
           Authorization: "Bearer {{ ocpai_token }}"
         body:
           #prompt: "{{ gpt_prompt | default('What is the capital of the USA?') }}"
-          messages: "{{ gpt_prompt | default('What is the capital of the USA?') }}"
+          messages:
+            - role: "user"
+              content: "{{ gpt_prompt | default('What is the capital of the USA?') }}"
           max_tokens: "{{ max_tokens | default('50') }}"
           model: "vllm"
           temperature: "{{ input_temperature | default(0) }}"
@@ -41,7 +43,9 @@
           Authorization: "Bearer {{ ocpai_token }}"
         body:
           #prompt: "{{ rca_prompt }}"
-          messages: "{{ rca_prompt }}"
+          messages:
+            - role: "user"
+            content: "{{ rca_prompt }}"
           max_tokens: "{{ rca_max_tokens | default(500) }}"
           model: "vllm"
           temperature: "{{ input_temperature | default(0.5) }}"
