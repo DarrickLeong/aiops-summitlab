@@ -45,7 +45,7 @@
           #prompt: "{{ rca_prompt }}"
           messages:
             - role: "user"
-            content: "{{ rca_prompt }}"
+              content: "{{ rca_prompt }}"
           max_tokens: "{{ rca_max_tokens | default(500) }}"
           model: "vllm"
           temperature: "{{ input_temperature | default(0.5) }}"
